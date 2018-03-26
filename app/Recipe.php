@@ -27,7 +27,7 @@ class Recipe extends BaseModel
 
 	public function hops()
 	{
-			return $this->hasMany('App\Recipehop');
+			return $this->hasMany('App\RecipeHop');
 	}
 
 	public function boil()
