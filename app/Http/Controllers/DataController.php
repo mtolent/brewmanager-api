@@ -21,7 +21,8 @@ class DataController extends Controller
     public function filter($t, $f, $d = null)
     {
         $model = BaseModel::create($t);
-        return $model->where($f, $d)->get();
+        //return $model->where($f, $d)->orderBy('percent','DESC')->get();
+        return $model->filter($f, $d);
     }
     public function update($t, $id, Request $request) {
         $data = BaseModel::create($t)::find($id);

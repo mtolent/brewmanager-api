@@ -34,6 +34,7 @@ class CreateRecipeFermentablesTable extends Migration
             $table->boolean('recommend_mash')->nullable();
             $table->double('ibu_gal_per_lb')->nullable();
             $table->double('potential')->nullable();
+            $table->double('mcu')->nullable();
             $table->timestamps();        
 
             $table->foreign('fermentable_id')->references('id')->on('fermentables');

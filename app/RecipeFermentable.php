@@ -10,7 +10,7 @@ class RecipeFermentable extends BaseModel
 	protected $primaryKey = 'id';
 	protected $table = 'recipe_fermentables';
 
-	protected $fillable = array('name', 'recipe_id', 'fermentable_id', 'amount', 'yield', 'color', 'percent');
+	protected $fillable = array('name', 'recipe_id', 'fermentable_id', 'amount', 'yield', 'color', 'percent', 'mcu');
 
 	public function Recipe()
     {
@@ -84,5 +84,10 @@ class RecipeFermentable extends BaseModel
 		$recipe = $this->recipe;
 		$this->delete();
 		$recipe->calcGrain();
+	}
+
+	function filter($f, $d)
+	{
+		return $this->where($f, $d)->orderBy('percent','DESC')->get();
 	}
 }

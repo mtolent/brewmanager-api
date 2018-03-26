@@ -24,6 +24,9 @@ class CreateRecipesTable extends Migration
             $table->double('post_boil_size')->nullable(); //apronte
             $table->double('boil_size')->nullable();
             $table->double('boil_time')->nullable();
+            $table->double('mash_size')->nullable();
+            $table->double('mash_loss')->nullable();
+            $table->double('mash_water_rate')->nullable();
             $table->double('efficiency')->nullable();
             $table->double('ibu')->nullable();
             $table->double('dt')->nullable();

@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Equipment;
 use App\Fermentable;
 use App\Hop;
 use App\Yeat;
 use App\Recipe;
-use App\RecipeFermentables;
+use App\RecipeFermentable;
+use App\RecipeHop;
 use App\ExtractConv;
 use Illuminate\Http\Request;
 
@@ -21,7 +23,7 @@ class BaseModel extends Model
 		    $model = new $className;
 		}
 		else {
-			return 'Class ' + $name +' not found.';
+			return sprintf('Class %s not found.',  $name);
 		}
 
 		return $model;
@@ -45,5 +47,10 @@ class BaseModel extends Model
 	{
 		//some validation perhaps?
 		$this->delete();
+	}
+
+	function filter($f, $d)
+	{
+	    return $this->where($f, $d)->get();
 	}
 }
